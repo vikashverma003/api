@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Resources\Product\ProductResource;
 
+use App\Http\Resources\Product\ProductCollection;
+
+
 class ProductController extends Controller
 {
     /**
@@ -17,8 +20,13 @@ class ProductController extends Controller
     public function index()
     {
         
+        //echo "<pre>";
 
-        return Product::all();
+        //print_r(ProductResource::collection(Product::all()));
+        //die();
+
+        return ProductCollection::collection(Product::all()) ;
+       // return Product::all();
     }
 
     /**
